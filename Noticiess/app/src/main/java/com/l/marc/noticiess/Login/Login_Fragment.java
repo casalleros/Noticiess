@@ -1,7 +1,5 @@
 package com.l.marc.noticiess.Login;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +11,7 @@ import android.widget.EditText;
 import com.l.marc.noticiess.NavigationHost;
 import com.l.marc.noticiess.R;
 import com.l.marc.noticiess.Registre.Registre_Fragment;
+import com.l.marc.noticiess.ViewPager.ViewPagerFragment;
 
 public class Login_Fragment extends Fragment implements View.OnClickListener {
 
@@ -23,6 +22,8 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
     private EditText et_pass_login;
 
     private Registre_Fragment Registre_Fragment;
+    private ViewPagerFragment viewPagerFragment;
+
 
     public Login_Fragment() {
         // Required empty public constructor
@@ -64,12 +65,17 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
 
             case R.id.btn_autenticar_login:
-                //
+                autenticar();
                 break;
             case R.id.btn_registrar_login:
                 registro();
                 break;
         }
+    }
+
+    private void autenticar() {
+        viewPagerFragment = new ViewPagerFragment();
+        ((NavigationHost) getActivity()).navigateTo(viewPagerFragment,true);//Que fasil!
     }
 
     private void registro() {
